@@ -17,80 +17,80 @@ export const Step1Identity: React.FC = () => {
     <div className="animate-slide-up">
       <h2 className="step-title">Étape 1 : Identité & Contact</h2>
       <p className="step-description">Commençons par faire connaissance pour cibler votre pratique.</p>
-      
+
       <div className="form-field">
         <label htmlFor="firstName">Prénom *</label>
-        <input 
-          type="text" 
-          id="firstName" 
-          name="firstName" 
-          placeholder="Ex : Marie" 
-          value={contact.firstName} 
-          onChange={handleChange} 
-          required 
+        <input
+          type="text"
+          id="firstName"
+          name="firstName"
+          placeholder="Ex : Marie"
+          value={contact.firstName}
+          onChange={handleChange}
+          required
         />
       </div>
 
       <div className="form-field">
         <label htmlFor="lastName">Nom *</label>
-        <input 
-          type="text" 
-          id="lastName" 
-          name="lastName" 
-          placeholder="Ex : Dupont" 
-          value={contact.lastName} 
-          onChange={handleChange} 
-          required 
+        <input
+          type="text"
+          id="lastName"
+          name="lastName"
+          placeholder="Ex : Dupont"
+          value={contact.lastName}
+          onChange={handleChange}
+          required
         />
       </div>
 
       <div className="form-field">
         <label htmlFor="email">Adresse email *</label>
-        <input 
-          type="email" 
-          id="email" 
-          name="email" 
-          placeholder="Ex : marie.dupont@example.fr" 
-          value={contact.email} 
-          onChange={handleChange} 
-          required 
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Ex : marie.dupont@example.fr"
+          value={contact.email}
+          onChange={handleChange}
+          required
         />
       </div>
 
       <div className="form-field">
         <label htmlFor="practiceName">Nom du cabinet (optionnel)</label>
-        <input 
-          type="text" 
-          id="practiceName" 
-          name="practiceName" 
-          placeholder="Ex : Cabinet KinéSport Lambesc" 
-          value={contact.practiceName || ''} 
-          onChange={handleChange} 
+        <input
+          type="text"
+          id="practiceName"
+          name="practiceName"
+          placeholder="Ex : Cabinet KinéSport Lambesc"
+          value={contact.practiceName || ''}
+          onChange={handleChange}
         />
       </div>
 
       <div className="form-field">
         <label htmlFor="address">Adresse complète *</label>
-        <textarea 
-          id="address" 
-          name="address" 
-          rows={3} 
-          placeholder="Ex : 12 rue des Lilas, 04100 Manosque" 
-          value={contact.address} 
-          onChange={handleChange} 
-          required 
+        <textarea
+          id="address"
+          name="address"
+          rows={3}
+          placeholder="Ex : 12 rue des Lilas, 13050 Lambesc"
+          value={contact.address}
+          onChange={handleChange}
+          required
         />
       </div>
 
       <div className="form-field">
         <label htmlFor="phone">Téléphone du cabinet (optionnel)</label>
-        <input 
-          type="text" 
-          id="phone" 
-          name="phone" 
-          placeholder="Ex : 04 42 00 00 00" 
-          value={contact.phone || ''} 
-          onChange={handleChange} 
+        <input
+          type="text"
+          id="phone"
+          name="phone"
+          placeholder="Ex : 04 42 00 00 00"
+          value={contact.phone || ''}
+          onChange={handleChange}
         />
       </div>
 
@@ -104,14 +104,14 @@ export const Step1Identity: React.FC = () => {
 
         <div className="form-field">
           <label htmlFor="rpps">Numéro RPPS (Répertoire Partagé des Professionnels de Santé) *</label>
-          <input 
-            type="text" 
-            id="rpps" 
-            name="rpps" 
-            placeholder="Ex : 10001234567" 
-            value={contact.rpps || ''} 
-            onChange={handleChange} 
-            required 
+          <input
+            type="text"
+            id="rpps"
+            name="rpps"
+            placeholder="Ex : 10001234567"
+            value={contact.rpps || ''}
+            onChange={handleChange}
+            required
             pattern="[0-9]{11}"
           />
           <p className="help-text">11 chiffres. Trouvable sur <a href="https://annuaire.sante.fr" target="_blank" rel="noreferrer" style={{ color: 'var(--primary-color)' }}>annuaire.sante.fr</a></p>
@@ -119,40 +119,40 @@ export const Step1Identity: React.FC = () => {
 
         <div className="form-field">
           <label htmlFor="adeli">Numéro ADELI (si vous l'avez encore)</label>
-          <input 
-            type="text" 
-            id="adeli" 
-            name="adeli" 
-            placeholder="Ex : 049876543" 
-            value={contact.adeli || ''} 
-            onChange={handleChange} 
+          <input
+            type="text"
+            id="adeli"
+            name="adeli"
+            placeholder="Ex : 049876543"
+            value={contact.adeli || ''}
+            onChange={handleChange}
           />
         </div>
 
         <div className="form-field">
           <label htmlFor="diplomaYear">Année d'obtention du Diplôme d'État de Masseur-Kinésithérapeute *</label>
-          <input 
-            type="number" 
-            id="diplomaYear" 
-            name="diplomaYear" 
-            placeholder="Ex : 2015" 
+          <input
+            type="number"
+            id="diplomaYear"
+            name="diplomaYear"
+            placeholder="Ex : 2015"
             min="1950"
             max={new Date().getFullYear()}
-            value={contact.diplomaYear || ''} 
-            onChange={handleChange} 
-            required 
+            value={contact.diplomaYear || ''}
+            onChange={handleChange}
+            required
           />
         </div>
 
         <div className="form-field">
           <label htmlFor="siret">Numéro SIRET (si exercice libéral) *</label>
-          <input 
-            type="text" 
-            id="siret" 
-            name="siret" 
-            placeholder="Ex : 123 456 789 00012" 
-            value={contact.siret || ''} 
-            onChange={handleChange} 
+          <input
+            type="text"
+            id="siret"
+            name="siret"
+            placeholder="Ex : 123 456 789 00012"
+            value={contact.siret || ''}
+            onChange={handleChange}
             pattern="[0-9]{14}|[0-9]{3} [0-9]{3} [0-9]{3} [0-9]{5}"
           />
           <p className="help-text">14 chiffres (avec ou sans espaces)</p>
@@ -160,13 +160,13 @@ export const Step1Identity: React.FC = () => {
 
         <div className="form-field">
           <label htmlFor="orderDepartment">Ordre départemental de rattachement (optionnel)</label>
-          <input 
-            type="text" 
-            id="orderDepartment" 
-            name="orderDepartment" 
-            placeholder="Ex : Ordre des MK des Bouches-du-Rhône" 
-            value={contact.orderDepartment || ''} 
-            onChange={handleChange} 
+          <input
+            type="text"
+            id="orderDepartment"
+            name="orderDepartment"
+            placeholder="Ex : Ordre des MK des Bouches-du-Rhône"
+            value={contact.orderDepartment || ''}
+            onChange={handleChange}
           />
         </div>
       </div>
@@ -178,14 +178,14 @@ export const Step1Identity: React.FC = () => {
 
         <div className="form-field">
           <label htmlFor="schedules">Jours et horaires d'ouverture du cabinet *</label>
-          <textarea 
-            id="schedules" 
-            name="schedules" 
-            rows={3} 
+          <textarea
+            id="schedules"
+            name="schedules"
+            rows={3}
             placeholder="Ex : Lun-Ven 9h-12h / 14h-19h, Sam 9h-12h, sur RDV uniquement"
-            value={contact.schedules || ''} 
-            onChange={handleChange} 
-            required 
+            value={contact.schedules || ''}
+            onChange={handleChange}
+            required
           />
         </div>
 
@@ -228,13 +228,13 @@ export const Step1Identity: React.FC = () => {
 
         <div className="form-field">
           <label htmlFor="appointmentDelay">Délai moyen pour obtenir un rendez-vous (optionnel)</label>
-          <input 
-            type="text" 
-            id="appointmentDelay" 
-            name="appointmentDelay" 
-            placeholder="Ex : Sous 48h, Sous 1 semaine, Variable selon période" 
-            value={contact.appointmentDelay || ''} 
-            onChange={handleChange} 
+          <input
+            type="text"
+            id="appointmentDelay"
+            name="appointmentDelay"
+            placeholder="Ex : Sous 48h, Sous 1 semaine, Variable selon période"
+            value={contact.appointmentDelay || ''}
+            onChange={handleChange}
           />
         </div>
 
@@ -278,23 +278,23 @@ export const Step1Identity: React.FC = () => {
         {contact.pmrAccessible === 'partial' && (
           <div className="form-field animate-slide-up">
             <label htmlFor="pmrDetails">Précisez les conditions d'accessibilité</label>
-            <textarea 
-              id="pmrDetails" 
-              name="pmrDetails" 
-              rows={2} 
+            <textarea
+              id="pmrDetails"
+              name="pmrDetails"
+              rows={2}
               placeholder="Ex : Rez-de-chaussée accessible, mais toilettes à l'étage"
-              value={contact.pmrDetails || ''} 
-              onChange={handleChange} 
+              value={contact.pmrDetails || ''}
+              onChange={handleChange}
             />
           </div>
         )}
 
         <div className="form-field">
           <label htmlFor="parking">Stationnement à proximité ? *</label>
-          <select 
-            id="parking" 
-            name="parking" 
-            value={contact.parking || ''} 
+          <select
+            id="parking"
+            name="parking"
+            value={contact.parking || ''}
             onChange={handleChange}
             required
           >
@@ -316,61 +316,61 @@ export const Step1Identity: React.FC = () => {
 
         <div className="form-field">
           <label htmlFor="doctolibUrl">Lien vers votre profil Doctolib / Calendly</label>
-          <input 
-            type="url" 
-            id="doctolibUrl" 
-            name="doctolibUrl" 
-            placeholder="https://www.doctolib.fr/..." 
-            value={contact.doctolibUrl || ''} 
-            onChange={handleChange} 
+          <input
+            type="url"
+            id="doctolibUrl"
+            name="doctolibUrl"
+            placeholder="https://www.doctolib.fr/..."
+            value={contact.doctolibUrl || ''}
+            onChange={handleChange}
           />
         </div>
 
         <div className="form-field">
           <label htmlFor="instagramUrl">Instagram</label>
-          <input 
-            type="url" 
-            id="instagramUrl" 
-            name="instagramUrl" 
-            placeholder="https://instagram.com/..." 
-            value={contact.instagramUrl || ''} 
-            onChange={handleChange} 
+          <input
+            type="url"
+            id="instagramUrl"
+            name="instagramUrl"
+            placeholder="https://instagram.com/..."
+            value={contact.instagramUrl || ''}
+            onChange={handleChange}
           />
         </div>
 
         <div className="form-field">
           <label htmlFor="facebookUrl">Facebook</label>
-          <input 
-            type="url" 
-            id="facebookUrl" 
-            name="facebookUrl" 
-            placeholder="https://facebook.com/..." 
-            value={contact.facebookUrl || ''} 
-            onChange={handleChange} 
+          <input
+            type="url"
+            id="facebookUrl"
+            name="facebookUrl"
+            placeholder="https://facebook.com/..."
+            value={contact.facebookUrl || ''}
+            onChange={handleChange}
           />
         </div>
 
         <div className="form-field">
           <label htmlFor="linkedinUrl">LinkedIn</label>
-          <input 
-            type="url" 
-            id="linkedinUrl" 
-            name="linkedinUrl" 
-            placeholder="https://linkedin.com/in/..." 
-            value={contact.linkedinUrl || ''} 
-            onChange={handleChange} 
+          <input
+            type="url"
+            id="linkedinUrl"
+            name="linkedinUrl"
+            placeholder="https://linkedin.com/in/..."
+            value={contact.linkedinUrl || ''}
+            onChange={handleChange}
           />
         </div>
 
         <div className="form-field">
           <label htmlFor="existingWebsite">Site web existant (si vous en avez un)</label>
-          <input 
-            type="url" 
-            id="existingWebsite" 
-            name="existingWebsite" 
-            placeholder="https://..." 
-            value={contact.existingWebsite || ''} 
-            onChange={handleChange} 
+          <input
+            type="url"
+            id="existingWebsite"
+            name="existingWebsite"
+            placeholder="https://..."
+            value={contact.existingWebsite || ''}
+            onChange={handleChange}
           />
         </div>
       </div>

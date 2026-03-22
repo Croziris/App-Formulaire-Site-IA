@@ -67,7 +67,7 @@ export const Step8ReviewSubmit: React.FC = () => {
   }
 
   return (
-    <div className="animate-slide-up">
+    <form className="animate-slide-up" onSubmit={(e) => { e.preventDefault(); handleSubmit(); }}>
       <h2 className="step-title">Étape 8 : Récapitulatif & Envoi</h2>
       <p className="step-description">Vérifiez les informations avant d'envoyer votre brief de landing page.</p>
 
@@ -143,8 +143,8 @@ export const Step8ReviewSubmit: React.FC = () => {
 
       </div>
 
-      <StepNavigation onNext={handleSubmit} isSubmitting={isSubmitting} />
-    </div>
+      <StepNavigation isSubmitting={isSubmitting} />
+    </form>
   );
 };
 

@@ -13,7 +13,7 @@ import Step8ReviewSubmit from './components/steps/Step8ReviewSubmit';
 import './App.css';
 
 const FormWizard: React.FC = () => {
-  const { currentStep } = useFormState();
+  const { currentStep, nextStep } = useFormState();
 
   const renderStep = () => {
     switch (currentStep) {
@@ -35,13 +35,26 @@ const FormWizard: React.FC = () => {
     }
   };
 
+  const handleFormSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    nextStep();
+  };
+
   return (
     <div className="wizard-container">
       <ProgressBar totalSteps={8} />
-      <div className="wizard-content">
-        {renderStep()}
-      </div>
-      {currentStep !== 8 && <StepNavigation />}
+      {currentStep !== 8 ? (
+        <form onSubmit={handleFormSubmit}>
+          <div className="wizard-content">
+            {renderStep()}
+          </div>
+          <StepNavigation />
+        </form>
+      ) : (
+        <div className="wizard-content">
+          {renderStep()}
+        </div>
+      )}
     </div>
   );
 };
