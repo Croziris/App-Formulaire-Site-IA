@@ -33,6 +33,89 @@ export const Step7SeoFaq: React.FC = () => {
       </div>
 
       <div className="form-field">
+        <label htmlFor="serviceRadius">Rayon de déplacement pour le domicile (optionnel)</label>
+        <select 
+          id="serviceRadius" 
+          name="serviceRadius" 
+          value={seo.serviceRadius || ''} 
+          onChange={handleChange as any}
+        >
+          <option value="" disabled>Sélectionnez un rayon</option>
+          <option value="10km">10km</option>
+          <option value="20km">20km</option>
+          <option value="50km">50km</option>
+          <option value="plus-50km">Plus de 50km</option>
+          <option value="no-travel">Je ne me déplace pas</option>
+        </select>
+      </div>
+
+      <div className="form-field">
+        <label htmlFor="targetCities">Villes secondaires ciblées (optionnel)</label>
+        <p className="help-text">Ex : Rognes, Pélissanne, Saint-Cannat...</p>
+        <input 
+          type="text" 
+          id="targetCities" 
+          name="targetCities" 
+          value={seo.targetCities || ''} 
+          onChange={handleChange} 
+          placeholder="Ex : Rognes, Pélissanne"
+        />
+      </div>
+
+      <div className="form-field">
+        <label>Acceptez-vous des patients hors zone ? *</label>
+        <div className="radio-group" style={{ flexDirection: 'row', gap: '2rem' }}>
+          <label className="radio-label">
+            <input 
+              type="radio" 
+              name="outOfZonePatients" 
+              value="yes"
+              checked={seo.outOfZonePatients === 'yes'}
+              onChange={handleChange as any}
+              required
+            />
+            Oui
+          </label>
+          <label className="radio-label">
+            <input 
+              type="radio" 
+              name="outOfZonePatients" 
+              value="no"
+              checked={seo.outOfZonePatients === 'no'}
+              onChange={handleChange as any}
+            />
+            Non
+          </label>
+          <label className="radio-label">
+            <input 
+              type="radio" 
+              name="outOfZonePatients" 
+              value="conditional"
+              checked={seo.outOfZonePatients === 'conditional'}
+              onChange={handleChange as any}
+            />
+            Sous conditions
+          </label>
+        </div>
+      </div>
+
+      {seo.outOfZonePatients === 'conditional' && (
+        <div className="form-field animate-slide-up">
+          <label htmlFor="outOfZoneConditions">Précisez les conditions (tarifs majorés, etc.)</label>
+          <input 
+            type="text" 
+            id="outOfZoneConditions" 
+            name="outOfZoneConditions" 
+            value={(seo as any).outOfZoneConditions || ''} 
+            onChange={handleChange} 
+            placeholder="Ex : Majoration tarifaire de X€, frais kilométriques"
+            required
+          />
+        </div>
+      )}
+
+
+      <div className="form-field">
         <label htmlFor="searchTerms">Idées de requêtes Google *</label>
         <p className="help-text">Que taperaient vos patients sur Google pour vous trouver ? Ex : "Kiné du sport Lambesc", "Bilan course à pied Aix", "Analyse posturale cyclisme"...</p>
         <textarea 

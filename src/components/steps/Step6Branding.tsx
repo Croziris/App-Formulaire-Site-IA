@@ -13,7 +13,7 @@ export const Step6Branding: React.FC = () => {
   const { formData, setFormData } = useFormState();
   const { branding } = formData;
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -221,6 +221,143 @@ export const Step6Branding: React.FC = () => {
           onChange={handleChange}
           placeholder="Ex : Pas de rouge sang ni de kaki"
         />
+      </div>
+
+      <div style={{ marginTop: '2rem', paddingTop: '2rem', borderTop: '1px solid var(--border-color)' }}>
+        <h3 style={{ fontSize: '1.1rem', fontWeight: 600, marginBottom: '1rem', color: 'var(--text-main)' }}>
+          Photos & Vidéos
+        </h3>
+
+        <div className="form-field">
+          <label>Avez-vous des photos de votre cabinet ? *</label>
+          <div className="radio-group" style={{ flexDirection: 'row', gap: '2rem' }}>
+            <label className="radio-label">
+              <input 
+                type="radio" 
+                name="hasCabinetPhotos" 
+                value="yes"
+                checked={branding.hasCabinetPhotos === 'yes'}
+                onChange={handleChange}
+                required
+              />
+              Oui
+            </label>
+            <label className="radio-label">
+              <input 
+                type="radio" 
+                name="hasCabinetPhotos" 
+                value="no"
+                checked={branding.hasCabinetPhotos === 'no'}
+                onChange={handleChange}
+              />
+              Non
+            </label>
+          </div>
+        </div>
+
+        {branding.hasCabinetPhotos === 'yes' && (
+          <div className="form-field animate-slide-up">
+            <label htmlFor="cabinetPhotosUrl">Lien vers le dossier de photos (Drive, iCloud...)</label>
+            <input 
+              type="text" 
+              id="cabinetPhotosUrl" 
+              name="cabinetPhotosUrl" 
+              placeholder="Ex : https://drive.google.com/..." 
+              value={branding.cabinetPhotosUrl || ''} 
+              onChange={handleChange} 
+            />
+          </div>
+        )}
+
+        <div className="form-field">
+          <label>Avez-vous des photos de vous en action avec des patients ? *</label>
+          <div className="radio-group" style={{ flexDirection: 'row', gap: '2rem' }}>
+            <label className="radio-label">
+              <input 
+                type="radio" 
+                name="hasActionPhotos" 
+                value="yes"
+                checked={branding.hasActionPhotos === 'yes'}
+                onChange={handleChange}
+                required
+              />
+              Oui
+            </label>
+            <label className="radio-label">
+              <input 
+                type="radio" 
+                name="hasActionPhotos" 
+                value="no"
+                checked={branding.hasActionPhotos === 'no'}
+                onChange={handleChange}
+              />
+              Non
+            </label>
+          </div>
+        </div>
+
+        {branding.hasActionPhotos === 'yes' && (
+          <div className="form-field animate-slide-up">
+            <label htmlFor="actionPhotosUrl">Lien vers les photos en action</label>
+            <input 
+              type="text" 
+              id="actionPhotosUrl" 
+              name="actionPhotosUrl" 
+              placeholder="Ex : https://drive.google.com/..." 
+              value={branding.actionPhotosUrl || ''} 
+              onChange={handleChange} 
+            />
+          </div>
+        )}
+
+        <div className="form-field">
+          <label>Présence sur les photos *</label>
+          <select 
+            name="appearInPhotos" 
+            value={branding.appearInPhotos || ''} 
+            onChange={handleChange}
+            required
+          >
+            <option value="" disabled>Sélectionnez une préférence</option>
+            <option value="comfortable">Je suis à l'aise sur les photos</option>
+            <option value="discreet">Je préfère qu'on ne me voie pas trop</option>
+            <option value="undecided">Je ne sais pas encore</option>
+          </select>
+        </div>
+
+        <div className="form-field">
+          <label htmlFor="videoUrl">Lien vidéo de présentation (si existante)</label>
+          <p className="help-text">Une courte vidéo de vous qui présente le cabinet (Lien YouTube, Vimeo, Drive...)</p>
+          <input 
+            type="text" 
+            id="videoUrl" 
+            name="videoUrl" 
+            placeholder="Ex : https://youtube.com/watch?v=..." 
+            value={branding.videoUrl || ''} 
+            onChange={handleChange} 
+          />
+        </div>
+      </div>
+
+      <div style={{ marginTop: '2rem', paddingTop: '2rem', borderTop: '1px solid var(--border-color)' }}>
+        <h3 style={{ fontSize: '1.1rem', fontWeight: 600, marginBottom: '1rem', color: 'var(--text-main)' }}>
+          Langues
+        </h3>
+
+        <div className="form-field">
+          <label htmlFor="languagePreference">Préférence de langue du site *</label>
+          <select 
+            id="languagePreference" 
+            name="languagePreference" 
+            value={branding.languagePreference || 'french'} 
+            onChange={handleChange}
+            required
+          >
+            <option value="french">Français uniquement</option>
+            <option value="english">Anglais uniquement</option>
+            <option value="bilingual">Bilingue (Français / Anglais)</option>
+          </select>
+        </div>
       </div>
 
       <div className="form-field">

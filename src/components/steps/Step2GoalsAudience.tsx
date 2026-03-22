@@ -67,7 +67,7 @@ export const Step2GoalsAudience: React.FC = () => {
     });
   };
 
-  const handleAudienceText = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleAudienceText = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLSelectElement | HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -166,6 +166,153 @@ export const Step2GoalsAudience: React.FC = () => {
             <option key={action} value={action}>{action}</option>
           ))}
         </select>
+      </div>
+
+      <div style={{ marginTop: '2rem', paddingTop: '2rem', borderTop: '1px solid var(--border-color)' }}>
+        <h3 style={{ fontSize: '1.1rem', fontWeight: 600, marginBottom: '1rem', color: 'var(--text-main)' }}>
+          Organisation de la page
+        </h3>
+        <p className="help-text" style={{ marginBottom: '1.5rem' }}>
+          Ces choix nous aident à structurer votre landing page de façon optimale.
+        </p>
+
+        <div className="form-field">
+          <label>Type de mise en page souhaitée *</label>
+          <div className="radio-group">
+            <label className="radio-label">
+              <input 
+                type="radio" 
+                name="pageStructure" 
+                value="one-page"
+                checked={targetAudience.pageStructure === 'one-page'}
+                onChange={handleAudienceText}
+                required
+              />
+              One-page scroll (tout sur une seule page qui défile)
+            </label>
+            <label className="radio-label">
+              <input 
+                type="radio" 
+                name="pageStructure" 
+                value="multi-section"
+                checked={targetAudience.pageStructure === 'multi-section'}
+                onChange={handleAudienceText}
+              />
+              Multi-sections avec menu fixe et ancres (clic = scroll vers section)
+            </label>
+            <label className="radio-label">
+              <input 
+                type="radio" 
+                name="pageStructure" 
+                value="no-preference"
+                checked={targetAudience.pageStructure === 'no-preference'}
+                onChange={handleAudienceText}
+              />
+              Aucune préférence (vous choisissez)
+            </label>
+          </div>
+        </div>
+
+        <div className="form-field">
+          <label>Souhaitez-vous une section "À propos / Qui suis-je" ? *</label>
+          <div className="radio-group">
+            <label className="radio-label">
+              <input 
+                type="radio" 
+                name="aboutSection" 
+                value="before"
+                checked={targetAudience.aboutSection === 'before'}
+                onChange={handleAudienceText}
+                required
+              />
+              Oui, avant les services
+            </label>
+            <label className="radio-label">
+              <input 
+                type="radio" 
+                name="aboutSection" 
+                value="after"
+                checked={targetAudience.aboutSection === 'after'}
+                onChange={handleAudienceText}
+              />
+              Oui, après les services
+            </label>
+            <label className="radio-label">
+              <input 
+                type="radio" 
+                name="aboutSection" 
+                value="no"
+                checked={targetAudience.aboutSection === 'no'}
+                onChange={handleAudienceText}
+              />
+              Non
+            </label>
+          </div>
+        </div>
+
+        <div className="form-field">
+          <label>Souhaitez-vous une section dédiée aux témoignages patients ? *</label>
+          <div className="radio-group" style={{ flexDirection: 'row', gap: '2rem' }}>
+            <label className="radio-label">
+              <input 
+                type="radio" 
+                name="testimonialsSection" 
+                value="yes"
+                checked={targetAudience.testimonialsSection === 'yes'}
+                onChange={handleAudienceText}
+                required
+              />
+              Oui
+            </label>
+            <label className="radio-label">
+              <input 
+                type="radio" 
+                name="testimonialsSection" 
+                value="integrated"
+                checked={targetAudience.testimonialsSection === 'integrated'}
+                onChange={handleAudienceText}
+              />
+              Non, intégrés dans "À propos"
+            </label>
+            <label className="radio-label">
+              <input 
+                type="radio" 
+                name="testimonialsSection" 
+                value="no"
+                checked={targetAudience.testimonialsSection === 'no'}
+                onChange={handleAudienceText}
+              />
+              Pas de témoignages
+            </label>
+          </div>
+        </div>
+
+        <div className="form-field">
+          <label>Souhaitez-vous afficher une carte / plan du cabinet ? *</label>
+          <div className="radio-group" style={{ flexDirection: 'row', gap: '2rem' }}>
+            <label className="radio-label">
+              <input 
+                type="radio" 
+                name="mapSection" 
+                value="yes"
+                checked={targetAudience.mapSection === 'yes'}
+                onChange={handleAudienceText}
+                required
+              />
+              Oui (Google Maps intégré)
+            </label>
+            <label className="radio-label">
+              <input 
+                type="radio" 
+                name="mapSection" 
+                value="no"
+                checked={targetAudience.mapSection === 'no'}
+                onChange={handleAudienceText}
+              />
+              Non
+            </label>
+          </div>
+        </div>
       </div>
     </div>
   );
