@@ -161,7 +161,7 @@ export const Step4ServiceDetails: React.FC = () => {
                 name="installmentPayment" 
                 value="yes"
                 checked={formData.installmentPayment === 'yes'}
-                onChange={(e) => setFormData(prev => ({ ...prev, installmentPayment: e.target.value }))}
+                onChange={(e) => setFormData(prev => ({ ...prev, installmentPayment: e.target.value as 'yes' | 'no' }))}
                 required
               />
               Oui
@@ -172,7 +172,7 @@ export const Step4ServiceDetails: React.FC = () => {
                 name="installmentPayment" 
                 value="no"
                 checked={formData.installmentPayment === 'no'}
-                onChange={(e) => setFormData(prev => ({ ...prev, installmentPayment: e.target.value }))}
+                onChange={(e) => setFormData(prev => ({ ...prev, installmentPayment: e.target.value as 'yes' | 'no' }))}
               />
               Non
             </label>
@@ -201,7 +201,7 @@ export const Step4ServiceDetails: React.FC = () => {
                 name="deposit" 
                 value="yes"
                 checked={formData.deposit === 'yes'}
-                onChange={(e) => setFormData(prev => ({ ...prev, deposit: e.target.value }))}
+                onChange={(e) => setFormData(prev => ({ ...prev, deposit: e.target.value as 'yes' | 'no' }))}
                 required
               />
               Oui
@@ -212,7 +212,7 @@ export const Step4ServiceDetails: React.FC = () => {
                 name="deposit" 
                 value="no"
                 checked={formData.deposit === 'no'}
-                onChange={(e) => setFormData(prev => ({ ...prev, deposit: e.target.value }))}
+                onChange={(e) => setFormData(prev => ({ ...prev, deposit: e.target.value as 'yes' | 'no' }))}
               />
               Non
             </label>
@@ -241,7 +241,7 @@ export const Step4ServiceDetails: React.FC = () => {
                 name="launchOffer" 
                 value="yes"
                 checked={formData.launchOffer === 'yes'}
-                onChange={(e) => setFormData(prev => ({ ...prev, launchOffer: e.target.value }))}
+                onChange={(e) => setFormData(prev => ({ ...prev, launchOffer: e.target.value as 'yes' | 'no' }))}
                 required
               />
               Oui
@@ -252,7 +252,7 @@ export const Step4ServiceDetails: React.FC = () => {
                 name="launchOffer" 
                 value="no"
                 checked={formData.launchOffer === 'no'}
-                onChange={(e) => setFormData(prev => ({ ...prev, launchOffer: e.target.value }))}
+                onChange={(e) => setFormData(prev => ({ ...prev, launchOffer: e.target.value as 'yes' | 'no' }))}
               />
               Non
             </label>
