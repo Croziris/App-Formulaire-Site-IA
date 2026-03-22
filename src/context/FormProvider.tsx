@@ -20,8 +20,8 @@ const initialFormData: FormData = {
     address: '',
     phone: '',
   },
-  siteGoals: { mainGoal: '' },
-  targetAudience: { audiences: [], idealPatient: '', mainAction: '' },
+  siteGoals: { mainGoal: '', objectifAutreDetail: '' },
+  targetAudience: { audiences: [], idealPatient: '', mainAction: '', publicCibleAutreDetail: '' },
   services: [],
   experience: { degreesAndTraining: '', experienceDescription: '' },
   tone: { toneOptions: [], toneFreeText: '' },
@@ -32,6 +32,7 @@ const initialFormData: FormData = {
     secondaryColor: '#fdfcdc',
     avoidColors: '',
     imageStyle: [],
+    couleursPersonnalisees: [],
   },
   seo: {
     areas: '',

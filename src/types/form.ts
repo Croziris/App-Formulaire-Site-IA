@@ -9,12 +9,14 @@ export interface ContactData {
 
 export interface SiteGoalsData {
   mainGoal: string;
+  objectifAutreDetail?: string;
 }
 
 export interface TargetAudienceData {
   audiences: string[];
   idealPatient: string;
   mainAction: string;
+  publicCibleAutreDetail?: string;
 }
 
 export interface ServiceItem {
@@ -47,6 +49,7 @@ export interface BrandingData {
   secondaryColor: string;
   avoidColors?: string;
   imageStyle: string[];
+  couleursPersonnalisees: { nom: string; hex: string }[];
 }
 
 export interface SeoData {

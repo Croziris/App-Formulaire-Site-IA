@@ -28,7 +28,10 @@ export const Step8ReviewSubmit: React.FC = () => {
         submittedAt: new Date().toISOString(),
         source: 'landing-brief-kine'
       },
-      ...formData
+      ...formData,
+      objectifAutreDetail: formData.siteGoals.objectifAutreDetail,
+      publicCibleAutreDetail: formData.targetAudience.publicCibleAutreDetail,
+      couleursPersonnalisees: formData.branding.couleursPersonnalisees
     };
 
     try {
@@ -120,7 +123,7 @@ export const Step8ReviewSubmit: React.FC = () => {
              <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: 'var(--text-main)' }}>Charte graphique</h3>
              <button type="button" onClick={() => goToStep(6)} style={{ background: 'none', border: 'none', color: 'var(--primary-color)', cursor: 'pointer', textDecoration: 'underline' }}>Modifier</button>
           </div>
-          <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center' }}>
+          <div style={{ display: 'flex', gap: '1.5rem', alignItems: 'center', flexWrap: 'wrap' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               <span style={{ width: '24px', height: '24px', backgroundColor: formData.branding.primaryColor, border: '1px solid #ccc', borderRadius: '4px' }}></span>
               Primaire
@@ -129,6 +132,12 @@ export const Step8ReviewSubmit: React.FC = () => {
               <span style={{ width: '24px', height: '24px', backgroundColor: formData.branding.secondaryColor, border: '1px solid #ccc', borderRadius: '4px' }}></span>
               Secondaire
             </div>
+            {formData.branding.couleursPersonnalisees.map((color, idx) => (
+              <div key={idx} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span style={{ width: '24px', height: '24px', backgroundColor: color.hex, border: '1px solid #ccc', borderRadius: '4px' }}></span>
+                {color.nom || `Couleur ${idx + 1}`}
+              </div>
+            ))}
           </div>
         </div>
 

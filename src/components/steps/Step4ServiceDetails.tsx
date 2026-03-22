@@ -53,8 +53,8 @@ export const Step4ServiceDetails: React.FC = () => {
               <label>Formats de la séance (optionnel)</label>
               <input 
                 type="text" 
-                value={service.formats ? service.formats.join(', ') : ''}
-                onChange={(e) => handleChange(service.id, 'formats', e.target.value.split(',').map(s => s.trim()))}
+                value={service.formats ? service.formats.join(',') : ''}
+                onChange={(e) => handleChange(service.id, 'formats', e.target.value.split(','))}
                 placeholder="Ex : Individuel, Petit groupe"
               />
             </div>
@@ -63,8 +63,8 @@ export const Step4ServiceDetails: React.FC = () => {
               <label>Lieux de pratique (optionnel)</label>
               <input 
                 type="text" 
-                value={service.locations ? service.locations.join(', ') : ''}
-                onChange={(e) => handleChange(service.id, 'locations', e.target.value.split(',').map(s => s.trim()))}
+                value={service.locations ? service.locations.join(',') : ''}
+                onChange={(e) => handleChange(service.id, 'locations', e.target.value.split(','))}
                 placeholder="Ex : Au cabinet, En extérieur, En visio"
               />
             </div>

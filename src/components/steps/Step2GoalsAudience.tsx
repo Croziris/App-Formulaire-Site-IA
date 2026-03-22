@@ -31,9 +31,21 @@ export const Step2GoalsAudience: React.FC = () => {
   const { siteGoals, targetAudience } = formData;
 
   const handleGoalChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
     setFormData((prev) => ({
       ...prev,
-      siteGoals: { ...prev.siteGoals, mainGoal: e.target.value }
+      siteGoals: { 
+        ...prev.siteGoals, 
+        mainGoal: value,
+        objectifAutreDetail: value === "Autre" ? prev.siteGoals.objectifAutreDetail : ''
+      }
+    }));
+  };
+
+  const handleGoalTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    setFormData((prev) => ({
+      ...prev,
+      siteGoals: { ...prev.siteGoals, objectifAutreDetail: e.target.value }
     }));
   };
 
@@ -46,7 +58,11 @@ export const Step2GoalsAudience: React.FC = () => {
       
       return {
         ...prev,
-        targetAudience: { ...prev.targetAudience, audiences: newAudiences }
+        targetAudience: { 
+          ...prev.targetAudience, 
+          audiences: newAudiences,
+          publicCibleAutreDetail: newAudiences.includes("Autre") ? prev.targetAudience.publicCibleAutreDetail : ''
+        }
       };
     });
   };
@@ -82,6 +98,17 @@ export const Step2GoalsAudience: React.FC = () => {
             </label>
           ))}
         </div>
+        {siteGoals.mainGoal === "Autre" && (
+          <div className="animate-slide-up" style={{ marginTop: '1rem' }}>
+            <textarea 
+              rows={2} 
+              placeholder="Précisez votre objectif..." 
+              value={siteGoals.objectifAutreDetail || ''}
+              onChange={handleGoalTextChange}
+              required
+            />
+          </div>
+        )}
       </div>
 
       <div className="form-field">
@@ -98,6 +125,18 @@ export const Step2GoalsAudience: React.FC = () => {
             </label>
           ))}
         </div>
+        {targetAudience.audiences.includes("Autre") && (
+          <div className="animate-slide-up" style={{ marginTop: '1rem' }}>
+            <textarea 
+              name="publicCibleAutreDetail"
+              rows={2} 
+              placeholder="Précisez votre public cible..." 
+              value={targetAudience.publicCibleAutreDetail || ''}
+              onChange={handleAudienceText}
+              required
+            />
+          </div>
+        )}
       </div>
 
       <div className="form-field">
